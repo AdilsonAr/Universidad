@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 nov. 2019 19:38:01 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pojos.Estudiante" table="estudiante" catalog="universidad" optimistic-lock="version">
+        <id name="codigoEstudiante" type="int">
+            <column name="codigoEstudiante" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carrera" class="com.pojos.Carrera" fetch="select">
+            <column name="codigoCarrera" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="edad" type="java.lang.Integer">
+            <column name="edad" />
+        </property>
+        <property name="genero" type="string">
+            <column name="genero" length="30" />
+        </property>
+        <property name="cumCiclo" type="java.lang.Double">
+            <column name="cumCiclo" precision="22" scale="0" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="75" />
+        </property>
+        <property name="telefonoMovil" type="string">
+            <column name="telefonoMovil" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>
